@@ -13,7 +13,7 @@ public class StayStill : State
     {
         throw new NotImplementedException();
     }
-    public override void VerificarEnemigos()
+    public override void VerificarEnemigos(Transform player, LayerMask enemylayer)
     {
         throw new NotImplementedException();
     }

@@ -22,7 +22,7 @@ public abstract class State
 
 
     
-    public abstract void VerificarEnemigos();
+    public abstract void VerificarEnemigos(Transform player, LayerMask enemylayer);
     public abstract void ChangeState();
     public abstract void CompararVida(int healthCharacter,int healthEnemy);
   

@@ -14,9 +14,13 @@ public Move(State state)
     {
         throw new NotImplementedException();
     }
-    public override void VerificarEnemigos()
+    public override void VerificarEnemigos(Transform player,LayerMask enemyLayer)
     {
-        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.position, 1f, enemyLayer);
+        if (colliders.Length > 0)
+        {
+            ChangeState();
+        }
     }
 
     public override void ChangeState()

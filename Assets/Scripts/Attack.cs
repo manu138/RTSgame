@@ -20,7 +20,7 @@ class Attack : State
         else
             ChangeState();
     }
-    public override void VerificarEnemigos()
+    public override void VerificarEnemigos(Transform player, LayerMask enemylayer)
     {
        
     }
