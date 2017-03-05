@@ -17,5 +17,9 @@ public class StayStill : State
     {
         throw new NotImplementedException();
     }
+    public override void ChangeState()
+    {
+        throw new NotImplementedException();
+    }
 
 }

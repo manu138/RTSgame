@@ -18,7 +18,7 @@ class Attack : State
             Atacar(healthEnemy);
         }
         else
-            character.State = new StayStill(this);
+            ChangeState();
     }
     public override void VerificarEnemigos()
     {
@@ -28,4 +28,9 @@ class Attack : State
     {
         healthEnemy -= healthEnemy;
     }
+    public override void ChangeState()
+    {
+        character.State = new StayStill(this);
+    }
+
 }

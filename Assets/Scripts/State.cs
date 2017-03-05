@@ -23,6 +23,7 @@ public abstract class State
 
     
     public abstract void VerificarEnemigos();
+    public abstract void ChangeState();
     public abstract void CompararVida(int healthCharacter,int healthEnemy);
   
 

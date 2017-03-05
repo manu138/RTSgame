@@ -16,7 +16,12 @@ public Move(State state)
     }
     public override void VerificarEnemigos()
     {
-        throw new NotImplementedException();
+        
     }
 
+    public override void ChangeState()
+    {
+        character.State = new Attack(this);
+    }
+  
 }
