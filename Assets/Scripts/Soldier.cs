@@ -26,6 +26,9 @@ public int attack;
     public void OnTriggerEnter2D(Collider2D other)
     {
         Soldier enemy=other.GetComponent<Soldier>();
+        var target = GameObject.FindGameObjectWithTag("B");
+        var ch=target.GetComponent("Soldier");
+        ch.
         enemy.attack = enemyAttack;
         enemy.health = enemyHealth;
         enemy.defense = enemyDefense;
