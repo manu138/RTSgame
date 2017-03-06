@@ -9,9 +9,17 @@ public class Soldier : MonoBehaviour
     public int attack;
     public string team;
 
-    public void Attack()
+        public Soldier (int _health,int _defense,int _attack,string _team)
+        {
+        _team = this.team;
+        _health = this.health;
+        _defense = this.defense;
+        _attack = this.attack;
+        }
+    
+    public void Attack(int enemyAttack)
     {
-
+        health=health-enemyAttack;
     }
     
     public void Move(float tiledistance)
