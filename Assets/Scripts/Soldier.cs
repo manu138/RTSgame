@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Soldier : MonoBehaviour
 {
-    public int health;
-    public int defense;
-    public int attack;
-    public string team;
+   static int health;
+    static int defense;
+  static int attack;
+   static string team;
 
-        public Soldier (int _health,int _defense,int _attack,string _team)
-        {
-        _team = this.team;
-        _health = this.health;
-        _defense = this.defense;
-        _attack = this.attack;
-        }
-    
-    public void Attack(int enemyAttack)
+
+
+    void Update()
     {
-        health=health-enemyAttack;
+
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+    Soldier enemy=other.GetComponent<Soldier>();
+
+    }
+    public void Attack(int enemyDefense, int enemyHealth)
+    {
+        enemyHealth = enemyHealth-(enemyDefense - attack);
     }
     
     public void Move(float tiledistance)
