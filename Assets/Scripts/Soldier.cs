@@ -4,30 +4,41 @@ using UnityEngine;
 
 public class Soldier : MonoBehaviour
 {
-   static int health;
-    static int defense;
-  static int attack;
-   static string team;
+   public int health;
+   public int defense;
+public int attack;
+  public string team;
+    public float tile;
 
-
+    public int enemyHealth;
+    public int enemyDefense;
+    public int enemyAttack;
+    public string enemyTeam;
 
     void Update()
     {
-
+        
+    }
+    void Start()
+    {
+        Move(tile);
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-    Soldier enemy=other.GetComponent<Soldier>();
-
+        Soldier enemy=other.GetComponent<Soldier>();
+        enemy.attack = enemyAttack;
+        enemy.health = enemyHealth;
+        enemy.defense = enemyDefense;
+        enemy.team = enemyTeam;
     }
-    public void Attack(int enemyDefense, int enemyHealth)
+    public void Attack()
     {
         enemyHealth = enemyHealth-(enemyDefense - attack);
     }
     
     public void Move(float tiledistance)
     {
-        tiledistance = 2.34f;
+      
         transform.position = new Vector2(transform.position.x + tiledistance, 0);
     }
 
