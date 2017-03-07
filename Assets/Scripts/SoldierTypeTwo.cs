@@ -9,8 +9,15 @@ namespace FlyWeight.Characters
         public bool isTouching = false;
         public int enemyHealth;
         public int enemyDefense;
+      
         public void Update()
         {
+            if (Input.GetButtonDown("Jump"))
+            {
+               turn = 0;
+            }
+            if (turn==1)
+            { 
             if (isTouching == true)
             {
                 SoldierTypeOne.Instance.health = enemyHealth;
@@ -23,12 +30,17 @@ namespace FlyWeight.Characters
                 else
                     Attack(enemyHealth, enemyDefense);
             }
-          
+            if (isTouching == false)
+            {
+                Move(2.34f);
+            }
+            }
         }
-        void OnCollisionEnter2D(Collision2D coll)
+        void OnTriggerEnter2D(Collider2D coll)
         {
             if (coll.gameObject.tag == "B")
-                coll.gameObject.SendMessage("ApplyDamage", 10);
+                isTouching = true;
+              
 
         }
         public override void Attack(int enemyHealth, int enemyDefense)
