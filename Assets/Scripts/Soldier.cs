@@ -8,9 +8,8 @@ public abstract class Soldier : MonoBehaviour
    public int defense;
 public int attack;
   public string team;
-    public float tile;
-
-    public static int turn ;
+   
+    
    
 
 

@@ -11,13 +11,14 @@ namespace FlyWeight.Characters
         public bool isTouching = false;
         public int enemyHealth;
         public int enemyDefense;
-    
+        public  int turn;
         public static SoldierTypeOne Instance { get; private set; }
 
         public int soldierTypeOnehealth { get; private set; }
 
         public void Update()
         {
+          
             if(Input.GetButtonDown("Jump"))
             {
                 turn=1;
@@ -26,11 +27,11 @@ namespace FlyWeight.Characters
             { 
             if (isTouching == true)
             {
-                SoldierTypeOne.Instance.health = enemyHealth;
-                SoldierTypeOne.Instance.defense = enemyDefense;
+                SoldierTypeTwo.Instance.health = enemyHealth;
+                SoldierTypeTwo.Instance.defense = enemyDefense;
                 if (enemyHealth > health)
                 {
-                    Move(2.34f);
+                    Move(-2.34f);
                     Stay();
                 }
                 else
@@ -38,12 +39,13 @@ namespace FlyWeight.Characters
             }
             if(isTouching==false)
             {
-                Move(2.34f);
+                Move(-2.34f);
             }
             }
         }
         void Awake()
         {
+            soldierTypeOnehealth = health;
             if (Instance)
             {
                 DestroyImmediate(gameObject);
