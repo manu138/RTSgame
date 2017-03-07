@@ -16,12 +16,7 @@ namespace FlyWeight.Characters
         }
         public void OnTriggerEnter2D(Collider2D other)
         {
-            Soldier enemy = other.GetComponent<Soldier>();
-            isTouching = true;
-            enemy.attack = enemyAttack;
-            enemy.health = enemyHealth;
-            enemy.defense = enemyDefense;
-            enemy.team = enemyTeam;
+         
         }
         public override void Attack(int enemyHealth, int enemyDefense)
     {

@@ -8,7 +8,10 @@ namespace FlyWeight.Characters
 
     public class SoldierTypeOne : Soldier
 {
-
+        public int Gethealth()
+        {
+            return health;
+        }
     public override void Attack(int enemyHealth, int enemyDefense)
     {
             enemyHealth = enemyHealth - (enemyDefense - attack);

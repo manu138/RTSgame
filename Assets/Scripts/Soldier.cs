@@ -10,10 +10,7 @@ public int attack;
   public string team;
     public float tile;
 
-    public int enemyHealth;
-    public int enemyDefense;
-    public int enemyAttack;
-    public string enemyTeam;
+
 
     
     public abstract void Move(float tiledistance);
