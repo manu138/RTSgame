@@ -7,7 +7,35 @@ namespace FlyWeight.Characters
 {
 
     public class SoldierTypeOne : Soldier
-{
+    {
+
+        public static SoldierTypeOne Instance { get; private set; }
+
+        public int soldierTypeOnehealth { get; private set; }
+
+
+        void Awake()
+        {
+            if (Instance)
+            {
+                DestroyImmediate(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
+
+
+        void OnCollisionEnter2D(Collision2D coll)
+        {
+            if (coll.gameObject.tag == "A")
+                coll.gameObject.SendMessage("ApplyDamage", 10);
+
+        }
+
         public int Gethealth()
         {
             return health;

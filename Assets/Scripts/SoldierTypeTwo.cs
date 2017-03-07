@@ -7,16 +7,29 @@ namespace FlyWeight.Characters
     public class SoldierTypeTwo : Soldier
 {
         public bool isTouching = false;
+        public int enemyHealth;
+        public int enemyDefense;
         public void Update()
         {
             if (isTouching == true)
             {
-                
+                SoldierTypeOne.Instance.health = enemyHealth;
+                SoldierTypeOne.Instance.defense = enemyDefense;
+                if (enemyHealth > health)
+                {
+                    Move(2.34f);
+                    Stay();
+                }
+                else
+                    Attack(enemyHealth, enemyDefense);
             }
+          
         }
-        public void OnTriggerEnter2D(Collider2D other)
+        void OnCollisionEnter2D(Collision2D coll)
         {
-         
+            if (coll.gameObject.tag == "B")
+                coll.gameObject.SendMessage("ApplyDamage", 10);
+
         }
         public override void Attack(int enemyHealth, int enemyDefense)
     {
