@@ -6,14 +6,31 @@ namespace FlyWeight.Characters
 {
     public class SoldierTypeTwo : Soldier
 {
-    public override void Attack(int enemyHealth, int enemyDefense)
+        public bool isTouching = false;
+        public void Update()
+        {
+            if (isTouching == true)
+            {
+                
+            }
+        }
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            Soldier enemy = other.GetComponent<Soldier>();
+            isTouching = true;
+            enemy.attack = enemyAttack;
+            enemy.health = enemyHealth;
+            enemy.defense = enemyDefense;
+            enemy.team = enemyTeam;
+        }
+        public override void Attack(int enemyHealth, int enemyDefense)
     {
-        throw new NotImplementedException();
-    }
+            enemyHealth = enemyHealth - (enemyDefense - attack);
+        }
     public override void Move(float tiledistance)
     {
-        throw new NotImplementedException();
-    }
+            transform.position = new Vector2(transform.position.x + tiledistance, 0);
+        }
     public override void Stay()
     {
         throw new NotImplementedException();

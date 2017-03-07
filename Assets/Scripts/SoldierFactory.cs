@@ -5,22 +5,34 @@ using FlyWeight.Characters;
 
 public class SoldierFactory : MonoBehaviour
 {
-    Dictionary<string, Soldier> SoldierCollection;
+    Dictionary<int, GameObject> SoldierCollection;
 
-    public string SoldierIndex;
-
+    public int SoldierIndex;
+    public GameObject soldierTypeOne;
+    public Transform soldierTypeOneTransform;
+    public GameObject soldierTypeTwo;
+    public Transform soldierTypeTwoTransform;
 
 
     public void Start()
     {
-        GetSoldier(SoldierIndex);
+        
+    }
+    public void Update()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            GetSoldier(0);
+            GetSoldier(1);
+          
+        }
     }
     public SoldierFactory()
     {
-        SoldierCollection = new Dictionary<string, Soldier>();
+        SoldierCollection = new Dictionary<int, GameObject>();
     }
 
-    public Soldier GetSoldier(string SoldierIndex)
+    public GameObject GetSoldier(int SoldierIndex)
     {
         if (!SoldierCollection.ContainsKey(SoldierIndex))
         {
@@ -28,11 +40,15 @@ public class SoldierFactory : MonoBehaviour
          
             switch (SoldierIndex)
             {
-                case "0":
-                    SoldierCollection.Add(SoldierIndex, new SoldierTypeOne());
+                case  0:
+                    CreateSoldierTypeOne();
+                    SoldierCollection.Add(SoldierIndex, soldierTypeOne);
+                
                     break;
-                case "1":
-                    SoldierCollection.Add(SoldierIndex, new SoldierTypeTwo());
+                case 1:
+                    CreateSoldierTypeTwo();
+                    SoldierCollection.Add(SoldierIndex, soldierTypeTwo);
+                  
                     break;
             }
         }
@@ -43,5 +59,12 @@ public class SoldierFactory : MonoBehaviour
         return SoldierCollection[SoldierIndex];
     }
  
-
+    public void CreateSoldierTypeOne()
+    {
+        Instantiate(soldierTypeOne);
+    }
+    public void CreateSoldierTypeTwo()
+    {
+        Instantiate(soldierTypeTwo);
+    }
 }

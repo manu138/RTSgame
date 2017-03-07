@@ -11,12 +11,12 @@ namespace FlyWeight.Characters
 
     public override void Attack(int enemyHealth, int enemyDefense)
     {
-        throw new NotImplementedException();
-    }
+            enemyHealth = enemyHealth - (enemyDefense - attack);
+        }
     public override void Move(float tiledistance)
     {
-        throw new NotImplementedException();
-    }
+            transform.position = new Vector2(transform.position.x + tiledistance, 0);
+        }
     public override void Stay()
     {
         throw new NotImplementedException();
