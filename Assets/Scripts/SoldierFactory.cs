@@ -7,8 +7,14 @@ public class SoldierFactory : MonoBehaviour
 {
     Dictionary<string, Soldier> SoldierCollection;
 
+    public string SoldierIndex;
 
 
+
+    public void Start()
+    {
+        GetSoldier(SoldierIndex);
+    }
     public SoldierFactory()
     {
         SoldierCollection = new Dictionary<string, Soldier>();
